@@ -14,9 +14,8 @@ angular.module('app')
   })
 
   .controller('CloudCtrl', function($scope, $mdToast){
-    var position = 'top right';
 
-    $scope.save = function(){
+    $scope.submit = function(){
       $scope.working = true;
 
       $fh.cloud({
@@ -25,10 +24,12 @@ angular.module('app')
         'data': { name: $scope.data.name }
       }, function(res) {
         $scope.working = false;
-        $mdToast.show($mdToast.simple().position(position).content(res.message));
+        $scope.response = res.message;
+        $scope.$apply();
       }, function(msg, err) {
         $scope.working = false;
-        $mdToast.show($mdToast.simple().position(position).content('Cloud call failed with error message: ' + msg));
+        $mdToast.show($mdToast.simple().position('top right').content('Cloud call failed with error message: ' + msg));
+        $scope.$apply();
       });
     }
   })

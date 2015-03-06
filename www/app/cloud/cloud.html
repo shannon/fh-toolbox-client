@@ -7,7 +7,11 @@
       <label>Name</label>
       <input ng-model="data.name">
     </md-input-container>
-    <md-button class="md-primary" ng-click="save()" ng-disabled="!data.name || working">Submit</md-button>
+
+    <md-button class="md-primary" ng-click="submit()" ng-disabled="!data.name || working">Submit</md-button>
+  </div>
+  <div ng-show="response">
+    <h3>{{response}}</h3>
   </div>
   <span flex></span>
   <a href="http://docs.feedhenry.com/v3/api/app_api.html#app_api-_fh_cloud" target="_blank">$fh.cloud documentation</a>

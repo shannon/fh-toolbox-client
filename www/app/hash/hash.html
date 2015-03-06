@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<script src="hash.js"></script>
+
+<template id="hash.tpl.html">
+  <div layout='row'>
+
+    <md-select ng-model="data.algorithm" placeholder="Algorithm">
+      <md-option ng-repeat="alg in algorithms" ng-value="alg">{{alg}}</md-option>
+    </md-select>
+    <md-input-container>
+      <label>Text</label>
+      <input ng-model="data.text">
+    </md-input-container>
+
+    <md-button class="md-primary" ng-click="submit()" ng-disabled="!data.algorithm || !data.text || working">Submit</md-button>
+  </div>
+
+  <div ng-show="hashValue">
+    <h3>Hash Value</h3>
+    {{hashValue}}
+  </div>
+  <span flex></span>
+  <a href="http://docs.feedhenry.com/v3/api/app_api.html#app_api-_fh_hash" target="_blank">$fh.hash documentation</a>
+</template>
