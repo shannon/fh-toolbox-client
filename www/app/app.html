@@ -28,7 +28,7 @@
       -->
       <ul style="list-style: none;">
         <li ng-repeat="(key, link) in navLinks">
-          <a ui-sref="{{link}}">{{key}}</a>
+          <a ui-sref="{{link}}" ng-click="toggleNav()">{{key}}</a>
         </li>
       </ul>
     </md-content>
