@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<script src="sec.js"></script>
+
+<template id="sec.tpl.html">
+  <h3>Generate Encryption Keys</h3>
+  <div layout="row">
+    
+    <md-select ng-model="data.algorithm" placeholder="Algorithm">
+      <md-option value="AES">AES</md-option>
+      <md-option value="RSA" ng-if="allowRSA">RSA</md-option>
+    </md-select>
+
+    <md-select ng-model="data.keysize.AES" placeholder="Keysize" ng-show="data.algorithm === 'AES'">
+      <md-option ng-value="128">128</md-option>
+      <md-option ng-value="256">256</md-option>
+    </md-select>
+
+    <md-select ng-model="data.keysize.RSA" placeholder="Keysize" ng-show="data.algorithm === 'RSA'">
+      <md-option ng-value="1024">1024</md-option>
+      <md-option ng-value="2048">2048</md-option>
+    </md-select>
+    <md-button class="md-primary" ng-click="generate()">Generate</md-button>
+  </div>
+  
+  <div ng-show="data.public">
+    <h3>Encrypt Message using {{data.algorithm}} key {{data.public | limitTo: 12}}...</h3>
+    <div layout="row">
+
+      <md-input-container>
+        <label>Text</label>
+        <textarea ng-model="data.text"></textarea>
+      </md-input-container>
+
+      <md-button class="md-primary" ng-click="encrypt()" ng-disabled="(!data.key && !data.public) || !data.text || working">encrypt
+      </md-button>
+    </div>
+  </div>
+  <div ng-show="encrypted.length">
+
+    <h3>Encrypted Messages</h3>
+    <md-list>
+      <md-item ng-repeat="msg in encrypted">
+        <md-item-content>
+          <div class="md-tile-left">
+            <md-button ng-click="decrypt(msg)" aria-label="{{msg.plaintext ? 'encrypt' : 'decrypt'}}">
+              <md-icon md-svg-icon="action:{{msg.plaintext ? 'lock_open' : 'lock_outline'}}"></md-icon>
+            </md-button>
+          </div>
+          <div class="md-tile-content">
+            <p ng-hide="msg.plaintext">
+              {{msg.ciphertext | limitTo: 12}}...
+            </p>
+            <p ng-show="msg.plaintext">
+              {{msg.plaintext}}
+            </p>
+          </div>
+        </md-item-content>
+      </md-item>
+    </md-list>
+  </div>
+  <span flex></span>
+  <a href="{{docUrl}}" target="_blank">{{docLabel}} documentation</a>
+</template>

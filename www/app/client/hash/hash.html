@@ -15,10 +15,10 @@
     <md-button class="md-primary" ng-click="submit()" ng-disabled="!data.algorithm || !data.text || working">Submit</md-button>
   </div>
 
-  <div ng-show="hashValue">
+  <div ng-show="hashvalue">
     <h3>Hash Value</h3>
-    {{hashValue}}
+    {{hashvalue}}
   </div>
   <span flex></span>
-  <a href="http://docs.feedhenry.com/v3/api/app_api.html#app_api-_fh_hash" target="_blank">$fh.hash documentation</a>
+  <a href="{{docUrl}}" target="_blank">{{docLabel}} documentation</a>
 </template>

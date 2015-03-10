@@ -32,8 +32,16 @@ angular.module('app', [
 
   .controller('AppCtrl', function($scope, $mdSidenav, $log, $mdMedia){
     $scope.navLinks = {
-      ' $fh.cloud': 'app.cloud',
-      ' $fh.hash': 'app.hash'
+      'client': {
+        ' $fh.cloud': 'app.client.cloud',
+        ' $fh.hash':  'app.client.hash',
+        ' $fh.sec':   'app.client.sec'
+      },
+      'cloud': {
+        ' $fh.service': 'app.cloud.service',
+        ' $fh.hash':  'app.cloud.hash',
+        ' $fh.sec':   'app.cloud.sec'
+      }
     };
 
     $scope.toggleNav = function() {

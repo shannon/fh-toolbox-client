@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<script src="cloud.js"></script>
+
+<template id="cloud.tpl.html">
+  <div layout="row">
+    <md-input-container>
+      <label>Name</label>
+      <input ng-model="data.name">
+    </md-input-container>
+
+    <md-button class="md-primary" ng-click="submit()" ng-disabled="!data.name || working">Submit</md-button>
+  </div>
+  <div ng-show="response">
+    <h3>{{response}}</h3>
+  </div>
+  <span flex></span>
+  <a href="{{docUrl}}" target="_blank">{{docLabel}} documentation</a>
+</template>

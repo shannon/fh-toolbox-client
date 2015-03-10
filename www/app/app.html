@@ -2,12 +2,12 @@
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css">
 
 
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-animate.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-cookies.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-aria.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-touch.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular-animate.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular-cookies.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular-aria.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular-touch.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular-resource.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
 <script src="lib/feedhenry.js"></script>
@@ -26,10 +26,13 @@
         Just use links until angular material completes menu lists
         See https://github.com/angular/material/issues/985
       -->
-      <ul style="list-style: none;">
-        <li ng-repeat="(key, link) in navLinks">
-          <a ui-sref="{{link}}" ng-click="toggleNav()">{{key}}</a>
-        </li>
+      <ul ng-repeat="(sec, section) in navLinks">
+        <li>{{sec}}</li>
+        <ul style="list-style: none;">
+          <li ng-repeat="(key, link) in section">
+            <a ui-sref="{{link}}" ng-click="toggleNav()">{{key}}</a>
+          </li>
+        </ul>
       </ul>
     </md-content>
   </md-sidenav>
@@ -54,5 +57,5 @@
   </div>
 </template>
 
+<link rel="import" href="client/client.html">
 <link rel="import" href="cloud/cloud.html">
-<link rel="import" href="hash/hash.html">

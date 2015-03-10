@@ -2,18 +2,20 @@ angular.module('app')
 
   .config(function($stateProvider){
         
-    $stateProvider.state('app.hash', {
-      url: 'hash',
+    $stateProvider.state('app.client.hash', {
+      url: '/hash',
       views: {
-        main: {
-          controller: 'HashCtrl',
+        'main@app': {
+          controller: 'ClientHashCtrl',
           templateUrl: 'hash.tpl.html'
         }
       }
     });
   })
 
-  .controller('HashCtrl', function($scope, $mdToast){
+  .controller('ClientHashCtrl', function($scope, $mdToast){
+    $scope.docUrl = 'https://support-lon3.feedhenry.com/docs/api/app_api.html#app_api-_fh_hash';
+    $scope.docLabel = '$fh.hash';
     $scope.algorithms = ['MD5', 'SHA1', 'SHA256', 'SHA512'];
 
     $scope.submit = function(){
@@ -24,7 +26,7 @@ angular.module('app')
         text:       $scope.data.text
       }, function (res) {
         $scope.working = false;
-        $scope.hashValue = res.hashvalue;
+        $scope.hashvalue = res.hashvalue;
       }, function(msg) {
         $scope.working = false;
         $mdToast.show($mdToast.simple().position('top right').content('Hash failed with error message: ' + msg));
