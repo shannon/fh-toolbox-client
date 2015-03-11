@@ -14,7 +14,7 @@ angular.module('app')
   })
 
   .controller('ClientHashCtrl', function($scope, $mdToast){
-    $scope.docUrl = 'https://support-lon3.feedhenry.com/docs/api/app_api.html#app_api-_fh_hash';
+    $scope.docUrl = 'http://docs.feedhenry.com/v3/api/app_api.html#app_api-_fh_hash';
     $scope.docLabel = '$fh.hash';
     $scope.algorithms = ['MD5', 'SHA1', 'SHA256', 'SHA512'];
 

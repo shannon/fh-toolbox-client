@@ -35,7 +35,10 @@ angular.module('app', [
       'client': {
         ' $fh.cloud': 'app.client.cloud',
         ' $fh.hash':  'app.client.hash',
-        ' $fh.sec':   'app.client.sec'
+        ' $fh.sec':   'app.client.sec',
+        ' $fh.getCloudURL':   'app.client.getCloudURL',
+        ' $fh.getFHParams':   'app.client.getFHParams',
+        ' $fh.auth':   'app.client.auth'
       },
       'cloud': {
         ' $fh.service': 'app.cloud.service',

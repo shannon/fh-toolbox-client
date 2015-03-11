@@ -14,9 +14,9 @@ angular.module('app')
   })
 
   .controller('CloudCtrl', function($scope, $mdToast){
-    $scope.docUrl = 'https://support-lon3.feedhenry.com/docs/api/app_api.html#app_api-_fh_cloud';
+    $scope.docUrl = 'http://docs.feedhenry.com/v3/api/app_api.html#app_api-_fh_cloud';
     $scope.docLabel = '$fh.cloud';
-    
+
     $scope.submit = function(){
       $scope.working = true;
 

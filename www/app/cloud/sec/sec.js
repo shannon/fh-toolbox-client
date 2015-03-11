@@ -14,7 +14,7 @@ angular.module('app')
   })
 
   .controller('CloudSecCtrl', function($scope, $mdToast, $timeout){
-    $scope.docUrl = 'https://support-lon3.feedhenry.com/docs/api/cloud_api.html#cloud_api-_fh_sec';
+    $scope.docUrl = 'http://docs.feedhenry.com/v3/api/cloud_api.html#cloud_api-_fh_sec';
     $scope.docLabel = '$fh.sec';
     $scope.allowRSA = true;
 
@@ -105,7 +105,7 @@ angular.module('app')
         'data': {
           act: 'encrypt',
           params: {
-            algorithm: $scope.data.algorithm,
+            algorithm:  $scope.data.algorithm,
             key:        $scope.data.private,
             iv:         $scope.data.public,
             public:     $scope.data.public,

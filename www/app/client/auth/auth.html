@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<script src="auth.js"></script>
+
+<template id="auth.tpl.html">
+  <div layout="row">
+    <md-input-container>
+      <label>Policy ID</label>
+      <input ng-model="data.policy">
+    </md-input-container>
+  </div>
+
+  <div layout="row">
+    <md-input-container>
+      <label>Username</label>
+      <input ng-model="data.username">
+    </md-input-container>
+    <md-input-container>
+      <label>Password</label>
+      <input ng-model="data.password" type="password">
+    </md-input-container>
+  </div>
+
+  <div layout="row">
+    <md-button class="md-primary" ng-click="submit()" ng-disabled="!data.policy || working">Submit</md-button>
+  </div>
+
+  <div ng-show="response">
+    <h3>{{response}}</h3>
+  </div>
+  <span flex></span>
+  <a href="{{docUrl}}" target="_blank">{{docLabel}} documentation</a>
+</template>

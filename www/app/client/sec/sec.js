@@ -14,7 +14,7 @@ angular.module('app')
   })
 
   .controller('ClientSecCtrl', function($scope, $mdToast, $timeout){
-    $scope.docUrl = 'https://support-lon3.feedhenry.com/docs/api/app_api.html#app_api-_fh_sec';
+    $scope.docUrl = 'http://docs.feedhenry.com/v3/api/app_api.html#app_api-_fh_sec';
     $scope.docLabel = '$fh.sec';
 
     $scope.data = {
