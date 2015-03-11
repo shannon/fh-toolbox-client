@@ -1,4 +1,36 @@
 <!DOCTYPE html>
 <script src="service.js"></script>
 
-<!-- same template as client/cloud/cloud.html -->
+<template id="service.tpl.html">
+  <div layout="row">
+    <md-input-container>
+      <label>Service GUID</label>
+      <input ng-model="data.guid">
+    </md-input-container>
+  </div>
+  <div layout="row">
+    <md-select ng-model="data.method" placeholder="Method">
+      <md-option value="GET">GET</md-option>
+      <md-option value="POST">POST</md-option>
+    </md-select>
+
+    <md-input-container>
+      <label>Path</label>
+      <input ng-model="data.path">
+    </md-input-container>
+  </div>
+  <div layout="row">
+    <md-input-container>
+      <label>Params (JSON)</label>
+      <textarea ng-model="data.params"></textarea>
+    </md-input-container>
+
+    <md-button class="md-primary" ng-click="submit()" ng-disabled="!data.guid || !data.method || !data.path || working">Submit</md-button>
+  </div>
+  <div ng-show="response">
+    <h3>MBaaS Response</h3>
+    <pre>{{response}}</pre>
+  </div>
+  <span flex></span>
+  <a href="{{docUrl}}" target="_blank">{{docLabel}} documentation</a>
+</template>

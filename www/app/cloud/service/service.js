@@ -7,7 +7,7 @@ angular.module('app')
       views: {
         'main@app': {
           controller: 'ServiceCtrl',
-          templateUrl: 'cloud.tpl.html'
+          templateUrl: 'service.tpl.html'
         }
       }
     });
@@ -20,13 +20,26 @@ angular.module('app')
     $scope.submit = function(){
       $scope.working = true;
 
+      var params;
+
+      try {
+        params = JSON.parse($scope.data.params);
+      } catch(e) {
+        return $mdToast.show($mdToast.simple().position('top right').content('Invalid Params (JSON)'));
+      }
+
       $fh.cloud({
         path: '/api/v1/service',
         'method': 'POST',
-        'data': { name: $scope.data.name }
+        'data': { 
+          guid:   $scope.data.guid,
+          path:   $scope.data.path,
+          method: $scope.data.method,
+          params: params
+        }
       }, function(res) {
         $scope.working = false;
-        $scope.response = res.message;
+        $scope.response = res;
         $scope.$apply();
       }, function(msg, err) {
         $scope.working = false;
