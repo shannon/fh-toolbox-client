@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<script src="db.js"></script>
+
+<template id="db.tpl.html">
+  <md-content>
+    <p ng-hide="entries.length">
+      No Entries. Click + to add one
+    </p>
+
+    <md-button aria-label="Clear" ng-click="clear()" ng-show="entries.length">Clear entries</md-button>
+
+    <md-list ng-show="entries.length">
+      <md-item ng-repeat="entry in entries">
+        <md-item-content>
+          <div class="md-tile-content">
+            <h3>{{entry.fields.firstname}} {{entry.fields.lastname}}</h3>
+            <h4>{{entry.fields.email}}</h4>
+          </div>
+          <div class="md-tile-right">
+            <md-button ng-click="edit($event, entry)">
+              <md-icon md-svg-icon="content:create">
+            </md-button>
+            <md-button ng-click="delete(entry)">
+              <md-icon md-svg-icon="content:clear">
+            </md-button>
+          </div>
+        </md-item-content>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-item>
+    </md-list>
+
+    
+
+    <md-button class="md-fab md-accent" aria-label="Add Entry" style="position:fixed; bottom: 30px; right: 30px" 
+      ng-click="edit($event, {})">
+      <md-icon md-svg-icon="content:add"></md-icon>
+    </md-button>
+
+  </md-content>
+  <span flex></span>
+  <a href="{{docUrl}}" target="_blank">{{docLabel}} documentation</a>
+</template>
+
+
+<template id="add-entry.tpl.html">
+  <md-dialog aria-label="Add Entry">
+    <md-content>
+      <md-input-container>
+        <label>Firstname</label>
+        <input ng-model="entry.fields.firstname">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Lastname</label>
+        <input ng-model="entry.fields.lastname">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Email</label>
+        <input ng-model="entry.fields.email" type="email">
+      </md-input-container>
+    </md-content>
+    <div class="md-actions" layout="row">
+      <span flex></span>
+      <md-button ng-click="cancel()">
+       Cancel
+      </md-button>
+      <md-button ng-click="save()" class="md-primary">
+        Save
+      </md-button>
+    </div>
+  </md-dialog>
+</template>

@@ -42,8 +42,9 @@ angular.module('app', [
       },
       'cloud': {
         ' $fh.service': 'app.cloud.service',
-        ' $fh.hash':  'app.cloud.hash',
-        ' $fh.sec':   'app.cloud.sec'
+        ' $fh.hash':    'app.cloud.hash',
+        ' $fh.sec':     'app.cloud.sec',
+        ' $fh.db':      'app.cloud.db'
       }
     };
 
