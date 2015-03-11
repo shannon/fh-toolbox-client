@@ -60,7 +60,7 @@ angular.module('app')
       $fh.cloud({
         path: '/api/v1/db' + (edit.guid ? '/' + edit.guid : ''),
         method: 'POST',
-        data: edit.fields
+        data: { fields: edit.fields }
       }, function(res) {
         $scope.working = false;
         angular.copy(res, entry);
@@ -102,7 +102,7 @@ angular.module('app')
         targetEvent: ev,
         clickOutsideToClose: false,
         resolve: {
-          
+
           entry: function(){
 
             if(!entry.guid){
