@@ -22,7 +22,7 @@ angular.module('app')
 
       $fh.auth({
         policyId:       $scope.data.policy,
-        clientToken:    'EHK1BHZtAB06dXeEK6DwXC0A',//$fh.getFHParams().appid,
+        clientToken:    $fh.getFHParams().appid,
         endRedirectUrl: $scope.data.redirect || window.location.href,
         params: {
           userId:   $scope.data.username,
