@@ -13,7 +13,7 @@ angular.module('app')
               var deferred = $q.defer();
 
               $fh.cloud({
-                path: '/api/v1/db',
+                path: '/api/v1/db/entries',
                 method: 'GET'
               }, function(res) {
                 deferred.resolve(res.list);
@@ -58,7 +58,7 @@ angular.module('app')
       $scope.working = true;
 
       $fh.cloud({
-        path: '/api/v1/db' + (edit.guid ? '/' + edit.guid : ''),
+        path: '/api/v1/db/entries' + (edit.guid ? '/' + edit.guid : ''),
         method: 'POST',
         data: { fields: edit.fields }
       }, function(res) {
@@ -74,7 +74,7 @@ angular.module('app')
       $scope.working = true;
 
       $fh.cloud({
-        path: '/api/v1/db/' + entry.guid,
+        path: '/api/v1/db/entries/' + entry.guid,
         method: 'DELETE',
         data: {}
       }, function(res) {
@@ -112,7 +112,7 @@ angular.module('app')
             var deferred = $q.defer();
 
             $fh.cloud({
-              path: '/api/v1/db/' + entry.guid,
+              path: '/api/v1/db/entries/' + entry.guid,
               method: 'GET'
             }, function(res) {
               deferred.resolve(res);
@@ -134,7 +134,7 @@ angular.module('app')
       $scope.working = true;
 
       $fh.cloud({
-        path: '/api/v1/db',
+        path: '/api/v1/db/entries',
         method: 'DELETE',
         data: {}
       }, function(res) {

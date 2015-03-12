@@ -13,7 +13,7 @@ angular.module('app')
               var deferred = $q.defer();
 
               $fh.cloud({
-                path: '/api/v1/cache',
+                path: '/api/v1/cache/entry',
                 method: 'GET'
               }, function(res) {
                 deferred.resolve(res);
@@ -46,7 +46,7 @@ angular.module('app')
       $scope.working = true;
 
       $fh.cloud({
-        path: '/api/v1/cache',
+        path: '/api/v1/cache/entry',
         method: 'POST',
         data: { value: $scope.data.value }
       }, function(res) {
@@ -60,7 +60,7 @@ angular.module('app')
       $scope.working = true;
 
       $fh.cloud({
-        path: '/api/v1/cache',
+        path: '/api/v1/cache/entry',
         method: 'DELETE'
       }, function(res) {
         $scope.working = false;
