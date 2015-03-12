@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<script src="cache.js"></script>
+
+<template id="cache.tpl.html">
+  <div layout='row'>
+
+    <md-input-container>
+      <label>Value</label>
+      <input ng-model="data.value">
+    </md-input-container>
+
+    <md-button class="md-primary" ng-click="submit()" ng-disabled="!data.value || working">Submit</md-button>
+  </div>
+
+  <div ng-show="cache">
+    <h3>Cached Value <small>expires {{cache.expire | date:'medium'}}</small></h3>
+    {{cache.value}}
+  </div>
+  <span flex></span>
+  <a href="{{docUrl}}" target="_blank">{{docLabel}} documentation</a>
+</template>
