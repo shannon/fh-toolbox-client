@@ -30,7 +30,11 @@ angular.module('app')
         }
       }, function(res) {
         $scope.working = false;
-        $scope.response = res;
+
+        if(res.status === 'ok'){
+          $scope.response = res.status === 'ok' ? 'Login Succeeded': 'Login Failed';
+        }
+
         $scope.$apply();
       }, function(msg, err) {
         $scope.working = false;
