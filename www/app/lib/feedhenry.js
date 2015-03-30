@@ -9724,7 +9724,17 @@ var app_props = null;
 
 var load = function(cb) {
   var doc_url = document.location.href;
-  var url_params = qs(doc_url);
+  var url_params = qs(doc_url.replace(/#.*?$/g, ''));
+  var url_props = {};
+  
+  //only use fh_ prefixed params
+  for(var key in url_params){
+    if(url_params.hasOwnProperty(key) ){
+      if(key.indexOf('fh_') === 0){
+        url_props[key.substr(3)] = url_params[key]; 
+      }
+    }
+  }
   
   //default properties
   app_props = {
@@ -9735,13 +9745,13 @@ var load = function(cb) {
   };
   
   function setProps(props){
-    _.extend(app_props, url_params, props);
+    _.extend(app_props, props, url_props);
+    
     if(typeof url_params.url !== 'undefined'){
      app_props.host = url_params.url; 
     }
     
-    app_props.host = app_props.host.replace(/#.*?$/g, '');
-    app_props.local = !!(url_params.host || url_params.url);
+    app_props.local = !!(url_props.host || url_params.url);
     cb(null, app_props);
   }
 
