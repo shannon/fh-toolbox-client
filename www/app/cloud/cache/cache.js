@@ -31,8 +31,8 @@ angular.module('app')
   })
 
   .controller('CacheCtrl', function($scope, $mdToast, $timeout, cache){
-    $scope.docUrl = 'http://docs.feedhenry.com/v3/api/cloud_api.html#cloud_api-_fh_cache';
-    $scope.docLabel = '$fh.cache';
+    $scope.$root.docUrl = 'http://docs.feedhenry.com/v3/api/cloud_api.html#cloud_api-_fh_cache';
+    $scope.$root.docLabel = '$fh.cache';
 
     $scope.cache = cache;
 

@@ -14,8 +14,8 @@ angular.module('app')
   })
 
   .controller('CloudHashCtrl', function($scope, $mdToast){
-    $scope.docUrl = 'http://docs.feedhenry.com/v3/api/cloud_api.html#cloud_api-_fh_hash';
-    $scope.docLabel = '$fh.hash';
+    $scope.$root.docUrl = 'http://docs.feedhenry.com/v3/api/cloud_api.html#cloud_api-_fh_hash';
+    $scope.$root.docLabel = '$fh.hash';
     $scope.algorithms = ['MD5', 'SHA1', 'SHA256', 'SHA512'];
     
     $scope.submit = function(){

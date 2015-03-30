@@ -31,6 +31,9 @@ angular.module('app', [
   })
 
   .controller('AppCtrl', function($scope, $mdSidenav, $log, $mdMedia){
+    $scope.$root.docLabel = '';
+    $scope.$root.docUrl   = '';
+  
     $scope.navLinks = {
       'client': {
         ' $fh.cloud': 'app.client.cloud',

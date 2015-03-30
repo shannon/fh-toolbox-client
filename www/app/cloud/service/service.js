@@ -14,8 +14,8 @@ angular.module('app')
   })
 
   .controller('ServiceCtrl', function($scope, $mdToast){
-    $scope.docUrl = 'http://docs.feedhenry.com/v3/api/cloud_api.html#cloud_api-_fh_service';
-    $scope.docLabel = '$fh.service';
+    $scope.$root.docUrl = 'http://docs.feedhenry.com/v3/api/cloud_api.html#cloud_api-_fh_service';
+    $scope.$root.docLabel = '$fh.service';
     
     $scope.submit = function(){
       $scope.working = true;

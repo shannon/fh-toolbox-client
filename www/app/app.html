@@ -19,7 +19,7 @@
 <template id="app.tpl.html">
   <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="nav" md-is-locked-open="$mdMedia('gt-md')">
     <md-toolbar>
-      <h1 class="md-toolbar-tools">FeedHenry Demo</h1>
+      <h1 class="md-toolbar-tools" ui-sref="app" ui-sref-opts="{reload: true}">FeedHenry Toolbox</h1>
     </md-toolbar>
     <md-content ui-view="nav">
       <!-- 
@@ -46,13 +46,23 @@
         
         <div layout="row" flex>
           <div class="md-toolbar-item md-breadcrumb">
-            <span class="md-breadcrumb-page">FeedHenry Demo</span>
+            <span class="md-breadcrumb-page">FeedHenry Toolbox</span>
           </div>
         </div>
       </div>
     </md-toolbar>
-    <md-content flex class="md-padding" ui-view="main" layout="column">
-      Welcome to the demo app. Select a demo from the menu to see it in action.
+    <md-content flex  class="md-padding"  layout="column">
+      <div layout-fill>
+        <div ng-if="docLabel">
+          <a href="{{docUrl}}" target="_blank" style="float:right" ng-if="docUrl">documentation</a>
+          <h3>{{docLabel}}</h3>
+        </div>
+        <div layout-fill md-scroll-y ui-view="main">
+          <h3>Welcome to the toolbox app</h3>
+          <p>Select a tool from the menu to see it in action.</p>
+        </div>
+      </div>
+      
     </md-content>
   </div>
 </template>

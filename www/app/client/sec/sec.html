@@ -48,7 +48,7 @@
           </div>
           <div class="md-tile-content">
             <p ng-hide="msg.plaintext">
-              {{msg.ciphertext | limitTo: 12}}...
+              {{msg.ciphertext | limitTo: 24}}...
             </p>
             <p ng-show="msg.plaintext">
               {{msg.plaintext}}
@@ -58,6 +58,4 @@
       </md-item>
     </md-list>
   </div>
-  <span flex></span>
-  <a href="{{docUrl}}" target="_blank">{{docLabel}} documentation</a>
 </template>

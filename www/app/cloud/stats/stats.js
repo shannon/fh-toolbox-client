@@ -14,8 +14,8 @@ angular.module('app')
   })
 
   .controller('StatsCtrl', function($scope){
-    $scope.docUrl = 'http://docs.feedhenry.com/v3/api/cloud_api.html#cloud_api-_fh_stats';
-    $scope.docLabel = '$fh.stats';
+    $scope.$root.docUrl = 'http://docs.feedhenry.com/v3/api/cloud_api.html#cloud_api-_fh_stats';
+    $scope.$root.docLabel = '$fh.stats';
   })
 ;
 

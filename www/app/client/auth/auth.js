@@ -14,8 +14,8 @@ angular.module('app')
   })
 
   .controller('AuthCtrl', function($scope, $mdToast){
-    $scope.docUrl = 'http://docs.feedhenry.com/v3/api/app_api.html#app_api-_fh_auth';
-    $scope.docLabel = '$fh.auth';
+    $scope.$root.docUrl = 'http://docs.feedhenry.com/v3/api/app_api.html#app_api-_fh_auth';
+    $scope.$root.docLabel = '$fh.auth';
 
     $scope.submit = function(){
       $scope.working = true;

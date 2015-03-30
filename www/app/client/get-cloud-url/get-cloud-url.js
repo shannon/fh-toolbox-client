@@ -14,8 +14,8 @@ angular.module('app')
   })
 
   .controller('GetCloudURLCtrl', function($scope, $mdToast){
-    $scope.docUrl = 'http://docs.feedhenry.com/v3/api/app_api.html#app_api-_fh_getcloudurl';
-    $scope.docLabel = '$fh.getCloudURL';
+    $scope.$root.docUrl = 'http://docs.feedhenry.com/v3/api/app_api.html#app_api-_fh_getcloudurl';
+    $scope.$root.docLabel = '$fh.getCloudURL';
 
     $scope.cloudURL = $fh.getCloudURL();
   })

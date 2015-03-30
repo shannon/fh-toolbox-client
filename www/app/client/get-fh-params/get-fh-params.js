@@ -14,10 +14,10 @@ angular.module('app')
   })
 
   .controller('GetFHParamsCtrl', function($scope, $mdToast){
-    $scope.docUrl = 'http://docs.feedhenry.com/v3/api/app_api.html#app_api-_fh_getfhparams';
-    $scope.docLabel = '$fh.getFHParams';
+    $scope.$root.docUrl = 'http://docs.feedhenry.com/v3/api/app_api.html#app_api-_fh_getfhparams';
+    $scope.$root.docLabel = '$fh.getFHParams';
 
-    $scope.fhParams = JSON.stringify($fh.getFHParams(), null, 4);
+    $scope.fhParams = JSON.stringify($fh.getFHParams(), null, 1);
   })
 ;
 

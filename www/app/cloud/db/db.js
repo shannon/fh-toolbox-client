@@ -31,8 +31,8 @@ angular.module('app')
   })
 
   .controller('DbCtrl', function($scope, $mdToast, $mdDialog, $q, entries){
-    $scope.docUrl = 'http://docs.feedhenry.com/v3/api/cloud_api.html#cloud_api-_fh_db';
-    $scope.docLabel = '$fh.db';
+    $scope.$root.docUrl = 'http://docs.feedhenry.com/v3/api/cloud_api.html#cloud_api-_fh_db';
+    $scope.$root.docLabel = '$fh.db';
 
     $scope.entries = entries;
 
