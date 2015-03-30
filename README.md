@@ -1,7 +1,7 @@
 FeedHenry Toolbox App
 ==========================
 
-A basic app that excersises all the main components of the FeedHenry SDKS.
+A basic app that exercises all the main components of the FeedHenry SDKS.
 
 # Components
 
