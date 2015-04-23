@@ -1,7 +1,8 @@
 angular.module('app', [
-  'ngMaterial', 
-  'templateImport', 
-  'ui.router'
+    'ngMaterial', 
+    'templateImport', 
+    'ui.router',
+    'fhForms'
   ])
 
   .config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider, $mdIconProvider){
@@ -41,7 +42,8 @@ angular.module('app', [
         ' $fh.sec':   'app.client.sec',
         ' $fh.getCloudURL':   'app.client.getCloudURL',
         ' $fh.getFHParams':   'app.client.getFHParams',
-        ' $fh.auth':   'app.client.auth'
+        ' $fh.auth':   'app.client.auth',
+        ' $fh.forms':  'app.client.forms'
       },
       'cloud': {
         ' $fh.service': 'app.cloud.service',

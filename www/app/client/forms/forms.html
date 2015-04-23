@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<script src="forms.js"></script>
+
+<template id="forms.tpl.html">
+  <md-list>
+    <md-list-item class="md-3-line"  ng-repeat="form in forms">
+      <a ui-sref="app.client.forms.form({ form: form._id })" class="md-list-item-text">
+        <h3 class="md-headline">{{ form.name }}</h3>
+        <p class="md-body-1">{{ form._id }}</p>
+        <p>{{ form.description }}</p>
+      </a>
+      <md-divider ng-if="!$last"></md-divider>
+    </md-list-item>
+  </md-list>
+</template>
+
+<template id="form.tpl.html">
+  <div fh-form="form" template="form-loading.tpl.html" layout-fill></div>
+</template>
+
+<template id="form-loading.tpl.html">
+  <div layout="column" layout-align="center center" layout-fill>Loading Form...</div>
+</template>
